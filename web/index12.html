@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE=edge, chrome=1">
+<title>HTML + Javascript(반복문4(checkbox) - name을 이용)</title>
+<script>
+    function abc(){
+        var aa = f.num.length;  //같은 name에 대한 노드갯수 파악
+        var bb=0;
+        var cc="n";
+        /*
+        for(bb=0;bb<aa;bb++){
+            if(f.num[bb].checked==true){
+                cc="y";
+            }
+        }
+        */
+        while(bb<aa){
+            if(f.num[bb].checked==true){
+                cc="y";
+                }
+            bb++;
+            }
+            if(cc=="n"){
+                alert("하나라도 체크를 하셔야만 합니다.");
+            }
+            else{
+                alert("해당 사항을 전달 하였습니다.");
+            }
+    }
+
+</script>
+</head>
+<body>
+<form name="f" id="f">
+<input type="checkbox" value="1" name="num" id="a"><label for="a">숫자1</label>
+<input type="checkbox" value="2" name="num" id="b"><label for="b">숫자2</label>
+<input type="checkbox" value="3" name="num" id="c"><label for="c">숫자3</label>
+<input type="checkbox" value="4" name="num" id="d"><label for="d">숫자4</label>
+<input type="checkbox" value="5" name="num" id="e"><label for="e">숫자5</label>
+<button type="button" onclick="abc();">결과확인</button>
+</body>
+</html>

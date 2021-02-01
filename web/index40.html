@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE=edge, chrome=1">
+<title>HTML + Javascript + css (index형태의 배열)</title>
+
+<style>
+.tablecss { width:700px; height:auto; border:1px solid black; }
+.trcss>th:nth-child(1){ width:150px; height:30px; text-align: center; }
+.trcss>th:nth-child(2){ width:150px; text-align: center; }
+.trcss>th:nth-child(3){ width:400px; text-align: center; }
+.trcss2>td:nth-child(1){ width:150px; height:30px; text-align: center; }
+.trcss2>td:nth-child(2){ width:150px; text-align: center; }
+.trcss2>td:nth-child(3){ width:400px; text-align: center; }
+</style>
+</head>
+<body>
+<table class="tablecss" border="1" cellspacing="0" cellpadding="0">
+    <thead>
+    <tr class="trcss">
+        <th>이름</th>
+        <th>아이디</th>
+        <th>이메일</th>
+    </tr>
+    </thead>
+    <tbody id="mdata">
+        <tr class="trcss2">
+            <!--
+            <td>홍길동</td>
+            <td>hong</td>
+            <td>hong@naver.com</td>
+            -->
+        </tr>
+
+    </tbody>
+</table>
+<script>
+    var a = {
+    'mid':['hong','kim','park'],
+    'memail':['hong@naver.com','kim@nate.com','park@gmail.com'],
+    'mname':['홍길동','김유신','박씨']
+    };
+    var b = 0;
+    var c = Object.keys(a).length;  //index(key) 이름의 갯수를 가져올 때 사용함 :기준
+    var col = Object.keys(a);   //index(key) 이름을 가져옴
+    //document.wrtite(col);
+    
+    /*
+    do{
+        var mid = a.mid[b];
+        var password = a.password[b];
+        document.write(mid,password);
+        b++;
+    }while(b<=c);
+    */
+    var f,z;
+    var member="";
+    var arr = a.mname.length;
+    var tdd=document.getElementById("mdata");
+    for(f=0;f<arr;f++){
+    tdd.innerHTML+='<tr class="trcss2">\
+        <td>'+a.mname[f]+'</td>\
+        <td>'+a.mid[f]+'</td>\
+        <td><a href=mailto:'+a.memail[f]+'>'+a.memail[f]+'</a></td>\
+        </tr>';
+        // 역슬래시\ : 한줄이 길어졌을때 줄 끊어도 연결시켜 정리함
+    }
+</script>
+</body>
+</html>

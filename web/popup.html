@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE=edge, chrome=1">
+<title>index30 + popup (자식창)</title>
+<script>
+function aaa(a){
+    var b=document.getElementById("addr"+a);    //도로명
+    var bb=document.getElementById("addno"+a);  //우편번호
+    var c=b.innerText;
+    var cc=bb.innerText;
+    //innerText : 태그와 태그 사이에 있는 문자를 가져올 때 사용 합니다.
+    window.opener.f.addno.value=cc;
+    window.opener.f.addr.value=c;
+
+    self.close();   //팝업창 닫을 때 사용하게 됩니다. 맨 마지막에 쓰는 것이 가장 좋음
+}
+
+</script>
+</head>
+<body>
+<!-- a href 태그 사용시 함수 호출 형태가 다름 -->
+<a href="javascript:void aaa(0);">
+<span id="addno0">01256</span>
+<label id="addr0">서울시 종로구 종로3가 국일빌딩 5F 그린아트컴퓨터학원</label>
+</a><br>
+<a href="javascript:void aaa(1);">
+<span id="addno1">23568</span>
+<label id="addr1">서울시 관악구 서울대학교 본관</label>
+</a><br>
+<a href="javascript:void aaa(2);">
+<span id="addno2">13669</span>
+<label id="addr2">서울시 강동구 천호동 현대백화점</label>
+</a><br><br>
+<input type="button" value="창닫기" onclick="self.close();">
+</body>
+</html>

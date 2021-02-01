@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE=edge, chrome=1">
+<title>HTML + Javascript(function (다함수 응용4))</title>
+<script>
+    function aaa(){
+        var a = document.getElementById("tel").value;
+        if(a==""){
+            alert("해당 번호를 입력해 주시길 바랍니다.");
+        }
+        else{
+            if(a=="0101234567"){
+                bbb("KT");
+            }
+            else if(a=="01022223333"){
+                bbb("SKT");
+            }
+            else{
+                alert("해당 번호는 확인되지 않습니다.")
+            }
+        }
+    }
+    function bbb(t){
+        if(t=="KT"){
+            alert("통신요금은 42,000원");
+        }
+        else if(t=="SKT"){
+            alert("통신요금은 52,000원");
+        }
+    }
+</script>
+</head>
+<body>
+<p>해당 휴대폰 번호를 입력하시면 통신 요금을 확인 할 수 있습니다.</p>
+<input type="text" id="tel" maxlength="11"> *숫자만 입력합니다.
+<input type="button" value="통신사 체크" onclick="aaa();">    
+</body>
+</html>

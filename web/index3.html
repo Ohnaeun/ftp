@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE=edge, chrome=1">
+<title>HTML + Javascript(function에 값 집어넣기2)</title>
+<script>
+    /*
+    function abc(yy){   //function에 html에서 호출과 동시에 값이 넘어옴
+        var a = 1;
+        var b = a + yy;
+        alert(b);
+    }
+    */
+   function abcd(aa,bb){
+       var h = aa + bb;
+       alert(h);
+   }
+   //function : 호출을 하여 결과를 처리할 수도 있고, 호출과 동시에 값을
+   //전달하여 결과를 처리할 수도 있습니다.
+
+   function ccc(){  //confirm : 확인,취소 선택 메세지
+       if(confirm("입력 해제 하시겠습니까?")){
+       document.getElementById("mm").readOnly = false; //false거짓, true진실
+        //readOnly(읽기전용)
+        }
+       else{    //취소
+           location.href="http://naver.com";
+       }
+    }
+
+    function aaa(a,b,c){
+        var d = a * b + c
+        alert(d);
+    }
+</script>
+</head>
+<body>
+<!-- abc(1) : 숫자로 넘기는 형태, abc('홍길동') : 문자로 넘기는 형태 -->
+<!--
+<input type="button" value="값던지기" onlclick="abc('이순신');">
+-->
+
+<input type="button" value="값던지기" onclick="abcd(5,10);">
+<input type="text" value="" id="mm" readonly onclick="ccc();"><br><br>
+<input type="button" value="응용문제" onclick="aaa(25,19,31)">
+</body>
+</html>

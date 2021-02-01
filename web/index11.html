@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE=edge, chrome=1">
+<title>HTML + Javascript(반복문4(radio) - name을 이용)</title>
+<script>
+    function abc(){
+        var aa = f.num.length; 
+        //length는 노드의 갯수를 가져올때 사용됩니다.
+        //중요사항 : 같은 name이어야만 합니다. (radio,check)
+        //var bb = typeof(aa);    //number 되어야만 반복문을 사용할 수 있음
+        
+        //f.num[0] 노드는 무조건 0부터 시작
+        var cc;
+        var dd="n"; //초기결과값 전체 체크 유/무
+        for(cc=0;cc<aa;cc++){
+            if(f.num[cc].checked==true){ //전체 같은 name값에 대한 체크를 확인
+                dd="y"; //전체 체크 중에서 하나라도 체크가 되면 y로 변화
+            }
+        }
+        if(dd=="n"){    //한개도 체크가 되지 않았을 경우
+            alert("한가지를 선택해 주세요!");
+        }
+        else{   //한개라도 체크가 되었을 경우
+            alert("감사합니다. 설문조사가 완료 되었습니다.");
+        }
+    }
+</script>
+</head>
+<body>
+<form name="f" id="f">
+<input type="radio" value="1" name="num" id="a"><label for="a">1번</label>
+<input type="radio" value="2" name="num" id="b"><label for="b">2번</label>
+<input type="radio" value="3" name="num" id="c"><label for="c">3번</label>
+<input type="radio" value="4" name="num" id="d"><label for="d">4번</label>
+<input type="radio" value="5" name="num" id="e"><label for="e">5번</label>
+<input type="radio" value="6" name="num" id="z"><label for="z">6번</label>
+<button type="button" onclick="abc();">결과확인</button>
+</form>
+</body>
+</html>

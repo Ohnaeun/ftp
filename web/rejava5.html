@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html land="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+<title>최종복습 (부모창 > 자식창 > 부모창) - callback</title>
+<script>
+    function aaa(){
+        window.open("./repopup.html","","width=500 height=400");
+    }
+</script>
+</head>
+<body>
+<form name="f" id="f">
+<input type="text" name="a" id="a" readonly>
+<input type="text" name="b" id="b" readonly>
+<input type="button" value="확인" onclick="aaa();">
+</form>
+<!--
+    응용문제
+    확인버튼을 클릭시 repopup.html이 오픈됩니다.
+    해당 제품을 클릭시 부모창 기준으로 a에는 상품명이 입력되며,
+    b에는 제품가격이 입력 되어야 합니다.
+-->
+</body>
+</html>

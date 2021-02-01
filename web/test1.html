@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE=edge, chrome=1">
+<title>HTML + Javascript + css(응용문제1)</title>
+<script>
+/*
+function aaa(){
+    var a = f.a.length; //노드갯수
+    var b = 0;
+    var ok = "no";
+    do{
+        if(f.a[b].checked==true){
+            ok = "yes";
+        }
+        b++;
+    }while(b<a);
+
+    if(ok=="no"){
+        alert("결제하실 파트를 선택해 주세요!");
+    }
+}
+*/
+function aaa(){
+    var num=document.getElementsByClassName("paycss").length;
+    var ck;     //for 사용되는 변수
+    var ok = "n" //체크 유/무 확인
+    
+    for(ck=0;ck<num;ck++){
+        var ids = "pay" + ck;   //같은 id 이름에 반복적인 형태로 만드는 부분
+        if(document.getElementById(ids).checked==true){
+            ok = "y";   //하나라도 체크가 되었을 경우
+            var idv = document.getElementById(ids).value;
+            //체크된 해당 라디오에 value값을 idv라는 변수로 전달
+        }
+    }
+
+    if(ok=="n"){
+        alert("원하시는 결제수단을 선택해주세요!");
+    }
+    else{
+        if(confirm("결제를 진행 하시겠습니까?")){
+            switch(idv){
+                case "card":
+                location.href="https://www.inicis.com";
+                break;
+
+                case "self":
+                location.href="http://ona0421.dothome.co.kr";
+                break;
+            }
+        }
+    }
+
+}
+</script>
+</head>
+<body>
+<form name="f" id="f">
+<input type="radio" name="a[]" value="card" class="paycss" id="pay0">
+<label for="pay0">신용카드</label>
+<input type="radio" name="a[]" value="bank" class="paycss" id="pay1">
+<label for="pay1">계좌이체</label>
+<input type="radio" name="a[]" value="hps" class="paycss" id="pay2">
+<label for="pay2">휴대폰결제</label>
+<input type="radio" name="a[]" value="self" class="paycss" id="pay3">
+<label for="pay3">무통장 입금</label>
+<input type="button" value="결제하기" onclick="aaa();">
+</form>
+</body>
+</html>

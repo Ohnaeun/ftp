@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE=edge, chrome=1">
+<title>HTML + Javascript(function 및 지역,전역변수 응용2)</title>
+<script>
+    var a = "no";
+    function abc(){
+        var mid=document.getElementById("mid").value;
+        if(mid==""){
+            alert("아이디를 입력해 주세요")
+        }
+        else{
+            if(mid=="abcde"){
+                alert("해당 아이디는 이미 사용중입니다.");
+            }
+            else{   //최종적으로 승인된 경우
+                alert("해당 아이디는 사용가능 합니다");
+                a="ok";     //전역변수 "no" 값을 "ok" 로 변경함
+            }
+        }
+    }
+
+    function bbb(){
+        if(a=="no"){
+            alert("아이디 중복체크를 해주세요!");
+        }
+        else{
+            alert("정상적으로 회원가입 되었습니다.");
+        }
+    }
+</script>
+</head>
+<body>
+<input type="text" id="mid" placeholder="아이디를 입력하세요">
+<input type="button" value="중복체크" onclick="abc();">
+<br>
+<input type="button" value="회원가입" onclick="bbb();">
+</body>
+</html>

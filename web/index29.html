@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE=edge, chrome=1">
+<title>HTML + Javascript(function (리턴함수))</title>
+<script>
+//이벤트 핸들링, return 핸들링
+//이벤트 버블링 - onkey~, onclick, onload, onchange
+//이벤트 캡쳐링 - 클릭하지 않고 바로 이동하는 형태
+function aaa(){
+    var a = 5;
+    var b = 10;
+    var c = bbb(a,b);
+    //bbb함수에 a값, b값을 전달합니다. 단, c라는 변수를 모두 통칭하게 됩니다.
+    document.write(c);  //최종적인 값을 출력하게 됩니다.
+}
+
+function bbb(k,j){
+    var d = k * j;
+    return d;  
+    //연산작업 후 return을 통해서 값을 다시 c라는 변수로 전달합니다.
+}
+
+</script>
+</head>
+<body onload="aaa();">  
+<!--onload : 페이지에 접속을 하는 순간 작동 되도록 하는 속성 입니다.-->
+
+</body>
+</html>

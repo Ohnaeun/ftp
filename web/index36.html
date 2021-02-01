@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE=edge, chrome=1">
+<title>HTML + Javascript + css(query)</title>
+<style>
+    li { width:100px; height:30px; background-color: blue; color:white;
+    float: left; list-style: none; text-align: center; line-height: 30px; cursor: pointer;}
+</style>
+<script>
+    //querySelector,querySelectorAll 
+    //(Jquery 엔진을 사용하지 않고, id,class를 사용하기 위함)
+    //Jquery 보다 DOM 형태의 node를 더 빠르게 처리하기 위해서 나온 명령어
+    //node 기준에 빠르기 순서 : getElementById > querySelect(node) >Jquery(ani)
+    /*
+    function aaa(){
+        //document.querySelector(".licss").style.color="red";   //첫번째 클래스에만 적용
+        //document.querySelector("#li1").style.color="red"; //해당 아이디 값에 적용
+        var a = document.querySelectorAll("#abc>.licss");
+        //querySelectorAll : 전체 아이디,클래스의 범위를 말합니다.
+        //querySelector : 특정 아이디, 클래스만 선택하는 형태
+        var b = a.length;
+        var c;
+        for(c=1;c<=b;c++){
+            var dd = ".licss:nth-child("+c+")";
+            document.querySelector(dd).style.color="red";
+        }
+        //alert(b);
+        //document.querySelector(".licss:nth-child(2)").style.color="red";  //두번째 클래스에 적용
+    }
+    */
+
+    function aaa(){
+        var a = document.querySelectorAll("#abc>.licss");
+        var b = a.length;
+        var c;
+        for(c=1;c<=b;c++){
+            var dd = ".licss:nth-child("+c+")";
+            document.querySelector(dd).style.backgroundColor="black";
+        }
+    }
+</script>
+</head>
+<body>
+<ul id="abc">
+    <li class="licss">메뉴1</li>
+    <li class="licss" id="li1">메뉴2</li>
+    <li class="licss">메뉴3</li>
+    <li class="licss">메뉴4</li>
+    <li class="licss">메뉴5</li>
+</ul>
+</body>
+<script>
+    //addEventListener : 전역변수 사용시 스크립트를 HTML 코드 아래에 사용
+    var a = document.getElementById("abc");
+    a.addEventListener("click",aaa,false);
+</script>
+</html>

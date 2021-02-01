@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE=edge, chrome=1">
+<title>HTML + Javascript + css(도로명 주소) + 배열(array)</title>
+<link rel="stylesheet" href="./index34.css?v=1" type="text/css"></link>
+<script>
+/* 해당 부분 배열로 반복문을 사용하였음
+var a = ['1','2','3','4','5'];  //1차원 배열
+//배열구조도 0부터 시작하며, 노드와 같은 기호를 사용합니다.
+var b = a.length;   //배열 전체 갯수를 가져올 때 사용합니다. (5개가 있음)
+var c;
+for(c=0;c<b;c++){
+    document.write(a[c]+"<br>");
+}
+*/
+
+//[ [],[],[] ]  //2차원 배열
+//{ "abc" : [] } //json (배열형태 구조 - 다차원)
+/*var a = [
+    ["홍길동","A"], //a[0], 이름만 찍을 경우 a[0][0], 혈액형 : a[0][1]
+    ["이순신","B","RH+"], //a[1], 이름만 찍을 경우 a[1][0], 혈액형 : a[1][1]
+    ["유관순","O","RH+"], //a[2], 이름만 찍을 경우 a[2][0], 혈액형 : a[2][1]
+    ["강감찬","AB"] //a[3], 이름만 찍을 경우 a[3][0], 혈액형 : a[3][1]
+];
+//예시
+//홍길동님은 혈액형 A 형입니다.
+var c,d,e,f;
+var z;
+    c = a.length;   //큰 for문
+    for(e=0;e<c;e++){
+        d = a[e].length;    //작은 배열의 데이터 갯수
+        for(f=0;f<d;f++){
+            //var z = a[e][f]
+            if(f==0){
+                z = a[e][f]+"님은 ";
+            }
+            else if(f==1){
+                z = z + "혈액형은 " + a[e][f] + "입니다.";
+            }
+            else if(f==2){
+                z = z + " 해당 사용자는 " + a[e][f];
+            }
+        }
+        document.write(z + "<br>");
+    }
+//while문 ver.
+var e=0;
+var z;
+var c = a.length;
+    while(e<c){
+        var d = a[e].length;
+        var f=0;
+        while(f<d){
+            if(f==0){
+            z = a[e][f]+"님은 ";
+            }
+            else if(f==1){
+                z = z + "혈액형은 " + a[e][f] + "입니다.";
+            }
+            else if(f==2){
+                z = z + " 해당 사용자는 " + a[e][f];  
+            }
+            f++;
+        }
+        e++;
+        document.write(z + "<br>");
+    }
+*/
+var oksign = "y";
+function search(ws){
+if(ws=="종로" || ws=="종로구"){
+    var addr = [
+    ["03138","서울특별시 종로구 돈화문로 지하30(묘동)"],
+    ["03139","서울특별시 종로구 수표로 104(종로 3가)"],
+    ["03139","서울특별시 종로구 종로 109(종로 3가)"],
+    ["03139","서울특별시 종로구 종로 111(종로 3가)"],
+    ["03139","서울특별시 종로구 종로 111-1(종로 3가)"]
+];
+}
+else if(ws=="중구" || ws=="을지로"){
+var addr = [
+    ["04533","서울특별시 중구 을지로 6"],
+    ["04533","서울특별시 중구 을지로 지하12"],
+    ["04533","서울특별시 중구 을지로 16"],
+    ["04523","서울특별시 중구 을지로 19"],
+    ["04523","서울특별시 중구 을지로 23"]
+];
+}
+else{
+    alert("현재 검색할 주소가 없습니다.");
+    oksign = "n";
+}
+
+if(oksign=="y"){
+    var fors;
+    var add_array = addr.length;
+   for(fors=0;fors<add_array;fors++){
+    var vw = document.getElementById("adview");
+    vw.innerHTML +='<label class="adlist"><span class="adno">'+ addr[fors][0] +'</span>'+addr[fors][1]+'</label>';
+   }
+   /* <label>을 innerHTML로 제작한 후에 해당 class 부분을 불러옵니다.
+    해당 <label> class가 몇개가 생성 되었는지 확인 후 addclick 함수로
+    보내게 됩니다.
+    */
+   var query = document.querySelectorAll(".box>.adlist");
+   var querylg = query.length;
+   var qf;
+   for(qf=0;qf<querylg;qf++){   //DOM객체 부분을 배열로 변경
+       addclick(qf);
+   }
+}
+}
+
+function addclick(selectadd){   //해당 데이터(배열)에 대한 함수 호출
+    var query = document.querySelectorAll(".box>.adlist");
+    query[selectadd].onclick=function(){
+        var addtext=query[selectadd].innerText;
+        //배열로 설정된 문자를 가져와서 출력함
+        //alert(addtext);
+        //우편번호와 도로명주소를 분리 작업(substr)
+        var addr1=addtext.substr(0,5);      //우편번호
+        var addr2=addtext.substr(5,100);    //도로명 주소
+        window.opener.mb.maddr.value = addr1;   //부모창 값 전달(우편번호)
+        window.opener.mb.maddr2.value = addr2;  //부모창 값 전달(도로명 주소)
+        window.opener.mb.maddr3.focus();    //부모창 상세주소 커서 자동이동
+        self.close();   //자식창 종료
+    }
+}
+</script>
+<style>
+    .box { width:550px; height:300px; border:1px solid black;
+    margin-top:20px; padding:5px; box-sizing: border-box;}
+    .adlist { font-size:13px; width:100%; height:30px;
+    line-height: 30px; display: block; cursor: pointer;}
+    .adno { margin-right:10px; }
+</style>
+</head>
+<form name="fs" id="fs" method="GET">
+<body>
+<input type="text" name="search" id="search">
+<input type="button" value="주소검색" id="sbtn">
+<div id="adview" class="box">
+</div>
+</form>
+</body>
+<script>
+    var btnid = document.getElementById("sbtn");
+    //btnid.addEventListener("click",search,false);
+    btnid.onclick=function(){
+        //var a=document.getElementById("search").value;
+        if(fs.search.value==""){
+        alert("주소명을 입력해주세요!");
+        fs.search.focus()
+        }
+        else{
+        search(fs.search.value);
+        }
+    }
+</script>
+</html>

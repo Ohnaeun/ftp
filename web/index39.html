@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE=edge, chrome=1">
+<title>HTML + Javascript + css (FAQ 만들기)</title>
+<style>
+body { margin:0; padding:0; }
+.box { width:800px; height:500px; }
+.ul1 { width:100%; height:auto; margin:0; padding:0; list-style: none; }
+.licss {  width:100%; height:40px; line-height:40px; border:1px solid gray; }
+.licss:nth-child(odd) { text-indent: 10px; } 
+.licss:nth-child(even) { text-indent: 70px; } 
+</style>
+</head>
+<body>
+<div class="box" id="box">
+    <ul class="ul1" id="ul1"></ul>
+</div>
+
+</body>
+<script>
+var a=[
+    ["Q. 주문내역을 삭제하고 싶어요?","A. 로그인 후 마이 페이지에 가셔서 주문내역을 확인 후 삭제 가능합니다."],
+    ["Q. 온누리 상품권으로 결제할 수 있나요?","A. 온누리 전자상품권은 전국 오프라인 가맹점 및 해당 사이트에서 사용 가능합니다."],
+    ["Q. 신용카드(ISP)결제 시 보여지는 설치 프로그램은 무엇인가요?","A. ISP 프로그램은 변경된 일반 결제(ISP) 서비스입니다. 보안수준을 제공합니다."]
+    ];
+var b=a.length;
+//document.write(b);
+var c,d,e;
+var qna=document.getElementById("ul1");
+for(c=0;c<b;c++){
+    f=a[c].length
+    for(d=0;d<f;d++){
+        if(d==0){
+            var fq=a[c][d];
+        }
+        else if(d==1){
+            var aq=a[c][d];
+        }
+        //var e =a[c][d];
+        //qna.innerHTML+="<li class='licss'>"+e+"</li>";
+    }
+    qna.innerHTML+="<li class='licss'>"+fq+"</li><li class='licss'>"+aq+"</li>";
+}
+</script>
+</html>

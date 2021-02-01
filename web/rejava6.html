@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>   
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE=edge, chrome=1">
+<title>최종복습 (더블function, return)2</title>
+<script>
+    /*
+    최종응용문제.
+    해당 사용자 이름을 검색을 합니다.
+    해당 사용자 이름 중에서 배열에 맞는 이름이 있을 경우
+    몇번째 가입 고객인지 출력하는 return 부분으로 제작하시오
+    단, 해당 고객 이름이 없을 경우 "해당 고객은 가입 되지 않았습니다."
+    라고 출력하시면 됩니다.
+    */
+    var members = ["홍길동","이순신","유관순"];
+
+    function abc(p){
+        var pernm = p.replace(/ /g,"");
+        var a = bbb(pernm);
+        alert(a);
+    }
+    function bbb(pernm){
+        var m = members.length;
+        var bb=0;
+        var cc=1;
+        var msg="";
+        do{
+            if(pernm==members[bb]){
+                msg = "해당 고객은" + cc + "번째 가입자 입니다.";
+            }
+            else{
+                ++cc;
+
+            }bb++;
+        }while(bb<m)
+
+        if(msg==""){
+            msg = "해당 고객은 가입되지 않은 고객입니다.";
+        }
+        return msg;
+    }
+</script>
+</head>
+<body>
+<form name="f" id="f">
+<input type="text" name="mname" id="mname">
+<input type="button" value="고객 등록순위" onclick="abc(f.mname.value);">
+</body>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE=edge, chrome=1">
+<title>HTML + Javascript(innerText,innerHTML)</title>
+<script>
+function aaa(){
+    var c=document.getElementById("link").value;
+    if(c==""){
+        alert("이동할 url 주소를 입력하세요");
+    }
+    else{
+        location.href=c;
+    }
+}
+</script>
+</head>
+<body id="a">
+
+</body>
+<script>
+//var aa = document.getElementById("a").innerText;  //문자만 가져옴
+//var aa = document.getElementById("a").innerHTML;  //HTML&문자 모두 가져옴
+//alert(aa);   
+//document.getElementById("a").innerText="innerText 연습입니다.";
+
+var b=document.getElementById("a");
+b.innerHTML="<input type='text' id='link'>";
+b.innerHTML+="<input type='button' value='이동' onclick='aaa();'>"
+
+
+
+
+</script>
+</html>

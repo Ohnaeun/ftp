@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE=edge, chrome=1">
+<title>HTML + Javascript + css 배열(array)</title>
+<script>
+    function aaa(){
+        var a=["HTML","CSS","Javascirpt","Jquery","Ajax","Vue.js"];
+        var b=a.length;
+        var c=0;
+        var h = document.getElementById("ulcss");
+        h.innerHTML="";
+        do{
+            //document.write(a[c]+"<br>");
+            var h=document.getElementById("ulcss");
+            h.innerHTML="<li>"+a[c]+"</li>";
+            c++
+        }while(c<b);
+    }
+    
+    function bbb(){
+        var h=document.getElementById("ulcss");
+        h.innerHTML="";
+    }
+</script>
+<style>
+.box { width:500px; height:500px; border:1px solid black;
+overflow: hidden; padding:5px; box-sizing: border-box; }
+.box2 { width:500px; height:500px; border:1px solid black;
+overflow: hidden; padding:5px; box-sizing: border-box; }
+.licss:nth-child(even) { 
+    width: 100%; height:30px; background-color:gainsboro;
+}
+.licss:nth-child(odd){
+    width: 100%; height:30px; background-color:gray;
+}
+.licss { list-style: none; }
+</style>
+</head>
+<body>
+<div class="box" id="box">
+    <ul class="ulcss" id="ulcss">
+    </ul>
+</div>
+<input type="button" value="확인" onclick="aaa()">
+<input type="button" value="초기화" onclick="bbb();">
+<br><br><br>
+<!--2차원 배열-->
+<p>2차원 배열[성적확인]</p>
+<div class="box2" id="box2">
+    <ul class="dataul" id="dataul">
+
+    </ul>
+</div>
+<input type="button" value="성적확인" onclick="ccc();">
+
+<script>
+    function ccc(){
+        var z=[
+            ["김유신","82점"],
+            ["황희","72점"],
+            ["최영","100점"],
+            ["장보고","90점"],
+            ["이이","100점"]
+        ];
+        
+        var w=0;    //큰 do~while
+        var zz = z.length;  //큰 배열 갯수
+        var html = document.getElementById("dataul");
+        do{
+            var x=0;    //작은 do~while
+            do{
+                var yy = z[x].length;   //각각의 작은 배열의 데이터 갯수
+                //document.write(z[w][x]);
+                if(x==0){
+                var li1=z[w][x];
+                }
+                else if(x==1){
+                var li2=z[w][x];
+                }
+                x++;
+            }while(x<yy);
+            //document.write("<br>");
+            html.innerHTML+="<li class='licss'>"+li1+"<span style='margin-left:5px;'>"+li2+"</li>";
+            w++;
+        }while(w<zz);
+    }
+</script>
+</body>
+</html>
