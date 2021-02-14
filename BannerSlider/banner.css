@@ -1,0 +1,45 @@
+@charset "UTF-8";
+/* 기본셋팅 사항 */
+html,body,div,span,label,section,aside,footer,header,nav,video,table,tr,td,th{
+    margin:0;
+    padding:0;
+    border:0;
+    font-size: 100%;
+    font:inherit; 
+    /* 부모요소에서 상속 받아서 사이즈, 글씨체, 색상 모든 사항을 같이 적용함*/
+}
+section,aside,footer,header,nav,main,span,label {
+    display: block;
+}
+body {
+    line-height: 1; 
+    /* 폰트 사용시 여러단락 사용할때 서로 높이가 맞지 않는 경우가 있음
+    해당 부분으로 정확하게 수치를 맞춰서 높이를 잡을 수 있습니다.
+    */
+    -webkit-text-size-adjust: none; /* 크롬, 사파리 기준 */
+    -moz-text-size-adjust: none;    /* 모질라, 파이어폭스 기준 */
+    -ms-text-size-adjust: none;     /* 익스플로어 기준 */
+    text-size-adjust:none;          /* Edge */
+    }
+ol, ul { list-style: none; margin: 0; padding: 0;}
+* { box-sizing: border-box; }   /* *:모든 태그에 적용 */
+img { width:100%; }
+
+/* 메인 롤링 배너 파트 시작 */
+.banner_part { height:500px; margin-top: 50px; }
+.banner_box { width:1500px; height:500px; overflow:hidden;
+margin: 0 auto; position:relative; }
+.banners { height:500px; position:absolute; }
+.banners>li { float: left; width:1500px; height:500px; }
+.spanbtn { position: absolute; z-index:10;
+width:50px; height:50px; display:none; }
+#left { top:50%; margin-top:-25px; left:50px; }
+#right { top:50%; margin-top:-25px; right:50px; }
+.disc { width:100%; height:30px; line-height:30px; position:absolute;
+z-index:10; text-align:center; bottom:10px;
+}
+.disc>li { display:inline-block; width:10px; height:10px;
+background-color:white; border-radius:5px; cursor:pointer;
+}
+.disc>li:first-child { background-color:gray; width:50px;}
+/* 메인 롤링 배너 파트 끝 */
